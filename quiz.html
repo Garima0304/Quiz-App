@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="quiz-body">
+  <div class="container">
+   <div id="welcome-box">
+  <h2>Welcome, <span id="user-name"></span></h2>
+   </div>
+    <div id="question-box">
+      <div id="question">Question text here</div>
+      <div id="options"></div>
+      <div class="info">
+        <span>Time Left: <strong id="timer">10</strong>s</span>
+        <span id="score">Score: 0</span>
+      </div>
+      <button id="next-btn">Next</button>
+    </div>
+    <div id="result-box" class="hidden">
+      <h2>Quiz Finished!</h2>
+      <p>Your Score: <span id="final-score"></span></p>
+      <button onclick="location.href='index.html'">Home</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Login to Start Quiz</h1>
+    <p class="subject-label">Subject: <span id="selected-subject"></span></p>
+    
+    <input type="text" id="name" placeholder="Enter your name" />
+    <input type="password" id="password" placeholder="Enter password" />
+    <button onclick="login()">Start Quiz</button>
+  </div>
+
+  <script>
+     const subject = localStorage.getItem("subject");
+    const displayMap = {
+      html: "HTML",
+      java: "Java",
+      python: "Python",
+      dbms: "DBMS",
+      cn: "Computer Networks"
+    };
+    document.getElementById("selected-subject").textContent = displayMap[subject] || "Unknown";
+    function login() {
+      const name = document.getElementById("name").value.trim();
+      const password = document.getElementById("password").value;
+       const subject = localStorage.getItem("subject");
+       const passwords = {
+        html: "html123",
+        java: "java123",
+        python: "python123",
+        dbms: "dbms123",
+        cn: "cn123"
+      };
+      if (name === "" || password === "") {
+        alert("Please fill all fields.");
+        return;
+      }
+
+      // Optional: hardcoded password (you can skip validation if not needed)
+      if (password !== passwords[subject]) {
+        alert("Incorrect password for " + displayMap[subject]);
+        return;
+      }
+
+      localStorage.setItem("username", name);
+      window.location.href = "quiz.html";
+    }
+  </script>
+</body>
+</html>
